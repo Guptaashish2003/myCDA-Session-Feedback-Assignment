@@ -1,3 +1,9 @@
+# File: backend/classes/tests.py
+# Purpose: Pre-existing tests for class listing and session helpers (must keep passing).
+# Contents:
+#   - ClassListTests: instructors, students and unenrolled students see the right classes.
+#   - SessionTests: duration_minutes / topic properties and the default 60-minute duration.
+
 from django.test import TestCase
 from rest_framework.test import APIClient
 from rest_framework import status

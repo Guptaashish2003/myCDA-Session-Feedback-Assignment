@@ -1,3 +1,9 @@
+# File: backend/feedback/apps.py
+# Purpose: App configuration for feedback.
+# Contents:
+#   - FeedbackConfig.ready(): imports receivers so the session_completed signal handler is
+#     connected at start-up.
+
 from django.apps import AppConfig
 
 

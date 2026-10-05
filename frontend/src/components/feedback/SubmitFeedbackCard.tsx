@@ -1,3 +1,11 @@
+/**
+ * File: frontend/src/components/feedback/SubmitFeedbackCard.tsx
+ * Purpose: Feedback submission form.
+ * Contents:
+ *   - SubmitFeedbackCard: parent student dropdown, session dropdown (only eligible sessions),
+ *     three star rows, note with 500-character counter; submit is disabled until complete; clears
+ *     optimistically and restores values plus server error messages on failure.
+ */
 "use client";
 
 import { FormEvent, useState } from "react";

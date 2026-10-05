@@ -1,3 +1,12 @@
+# File: backend/feedback/models.py
+# Purpose: The SessionFeedback model.
+# Contents:
+#   - rating_field(): builds a 1-5 validated smallint column.
+#   - SessionFeedback: one review of a session for one student: session, student (who it
+#     represents), created_by (submitter), rating_clarity / rating_engagement / rating_pace, note
+#     (max 500), timestamps. unique_together (session, student) and DB CHECK constraints keep data
+#     valid; submitter is an alias property for created_by.
+
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models

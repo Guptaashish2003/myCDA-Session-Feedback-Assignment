@@ -1,4 +1,13 @@
 /**
+ * File: frontend/src/lib/api.ts
+ * Purpose: HTTP client for the Django API.
+ * Contents:
+ *   - ApiClient.get / post / patch / delete: fetch wrappers that attach the Token header from
+ *     localStorage and throw ApiError on non-2xx.
+ *   - ApiClient.stream(): opens a long-lived response for SSE with Accept: text/event-stream.
+ *   - BASE_URL: NEXT_PUBLIC_API_URL (frontend/.env) or http://localhost:8000/api/v1.
+ */
+/**
  * API client for the CDA backend.
  *
  * Usage:

@@ -1,3 +1,9 @@
+# File: backend/accounts/admin.py
+# Purpose: Django admin registration for accounts.
+# Contents:
+#   - UserAdmin / FamilyLinkAdmin: list and filter users by role (with the extra CDA fields) and
+#     list family links.
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User, FamilyLink

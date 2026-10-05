@@ -1,3 +1,10 @@
+/**
+ * File: frontend/tailwind.config.ts
+ * Purpose: Tailwind configuration.
+ * Contents:
+ *   - config: brand colours (cda.*), shadcn theme tokens bound to CSS variables, the animate
+ *     plugin.
+ */
 import type { Config } from "tailwindcss";
 
 const config: Config = {

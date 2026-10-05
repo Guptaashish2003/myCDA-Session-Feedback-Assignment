@@ -1,3 +1,10 @@
+# File: backend/classes/serializers.py
+# Purpose: Serializers for classes, sessions and enrolments.
+# Contents:
+#   - ClassSerializer: class with instructor_display and an active student_count.
+#   - SessionSerializer: read-only session with class_name, duration_minutes and topic.
+#   - EnrollmentSerializer: read-only enrolment with nested class and student.
+
 from rest_framework import serializers
 from core.serializers import BaseModelSerializer, ReadOnlyBaseSerializer
 from accounts.serializers import UserMinimalSerializer

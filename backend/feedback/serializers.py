@@ -1,3 +1,15 @@
+# File: backend/feedback/serializers.py
+# Purpose: Serializers for the feedback API (separate shapes for submit, history and instructors).
+# Contents:
+#   - FeedbackCreateSerializer: write serializer: student optional (defaults to self for students,
+#     required for parents), runs FeedbackSubmissionPolicy in validate(), maps rule errors to 400
+#     / 403 and a race IntegrityError to the duplicate message; created_by is not writable.
+#   - FeedbackSerializer: student/parent-facing review with class name, date, ratings, note and
+#     submitter display name.
+#   - EligibleSessionSerializer: a (student, session) pair that can still be reviewed.
+#   - InstructorSummarySerializer (+ SummaryAveragesSerializer): plain serializers with no model:
+#     an explicit whitelist of aggregate numbers, so no student, submitter or note can leak.
+
 from django.db import IntegrityError
 from django.utils import timezone
 from rest_framework import serializers

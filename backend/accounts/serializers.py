@@ -1,3 +1,12 @@
+# File: backend/accounts/serializers.py
+# Purpose: Serializers for users, family links and login.
+# Contents:
+#   - UserSerializer / UserMinimalSerializer: full profile and the small {id, display_name, role}
+#     form used when nesting users.
+#   - FamilyLinkSerializer: a parent's link with the student shown as student_display.
+#   - LoginSerializer: validates username + password with django authenticate() and returns the
+#     user.
+
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 

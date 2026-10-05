@@ -1,3 +1,9 @@
+# File: backend/core/pagination.py
+# Purpose: Project-wide pagination class.
+# Contents:
+#   - StandardPagination: page-number pagination (default 20, max 100 via page_size) whose
+#     response is {count, page, page_size, results}.
+
 """
 Standard pagination for the CDA unified backend.
 

@@ -1,3 +1,7 @@
+# File: backend/feedback/urls.py
+# Purpose: URL routes for /api/v1/feedback/.
+# Contents:
+#   - urlpatterns: '' create, my/, eligible-sessions/, instructor-summary/, events/.
 # This file is already included in config/urls.py at /api/v1/feedback/
 
 from django.urls import path

@@ -1,3 +1,11 @@
+# File: backend/accounts/models.py
+# Purpose: User and family-link models.
+# Contents:
+#   - User: custom user with a role (admin, instructor, parent, student), preferred_name and
+#     phone; get_display_name() returns preferred name, else full name, else email.
+#   - FamilyLink: links a parent to a student (many-to-many through this table, unique per pair);
+#     used to decide whom a parent may act for.
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 

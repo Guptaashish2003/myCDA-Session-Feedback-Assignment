@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/components/DashboardCard.tsx
+ * Purpose: Standard card wrapper used by every dashboard card.
+ * Contents:
+ *   - DashboardCard: header (title, subtitle, optional action) and body; `flush` removes body
+ *     padding for lists.
+ */
 "use client";
 
 import type { ReactNode } from "react";

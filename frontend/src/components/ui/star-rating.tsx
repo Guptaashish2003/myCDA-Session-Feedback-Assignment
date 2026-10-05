@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/components/ui/star-rating.tsx
+ * Purpose: Star rating control used everywhere ratings appear.
+ * Contents:
+ *   - StarRating: interactive: hover previews and click fills the stars (radio-group, keyboard
+ *     accessible); read-only: renders any value including fractions with partial stars.
+ */
 "use client";
 
 import { useState } from "react";

@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/components/feedback/DimensionRatings.tsx
+ * Purpose: One row per rating dimension, reused by the form, history and summary (DRY).
+ * Contents:
+ *   - DimensionRatings: for clarity, engagement and pace renders label, StarRating and optionally
+ *     a hint, the numeric value and a progress bar; interactive when onChange is given.
+ */
 "use client";
 
 import { Progress } from "@/components/ui/progress";

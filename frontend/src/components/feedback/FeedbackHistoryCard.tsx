@@ -1,3 +1,11 @@
+/**
+ * File: frontend/src/components/feedback/FeedbackHistoryCard.tsx
+ * Purpose: Previously submitted feedback.
+ * Contents:
+ *   - FeedbackEntryItem: class, date, three read-only star rows, note and a 'Sending...' badge for
+ *     optimistic entries.
+ *   - FeedbackHistoryCard: flat list for students, grouped by student for parents.
+ */
 "use client";
 
 import { Badge } from "@/components/ui/badge";

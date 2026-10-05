@@ -1,3 +1,15 @@
+/**
+ * File: frontend/src/components/feedback/FeedbackProvider.tsx
+ * Purpose: Context that owns the student/parent feedback data.
+ * Contents:
+ *   - FeedbackProvider: loads eligible sessions, history and (for parents) linked students;
+ *     subscribes to the SSE stream and reloads eligible sessions with a toast when a class is
+ *     completed.
+ *   - submit(): optimistic update: adds a pending history entry and removes the session
+ *     immediately, replaces it with the server record on success and rolls both back on failure
+ *     (re-throwing so the form can show errors).
+ *   - useFeedback(): hook to read the context.
+ */
 "use client";
 
 import { createContext, useCallback, useContext, useMemo, ReactNode } from "react";

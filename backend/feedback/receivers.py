@@ -1,3 +1,10 @@
+# File: backend/feedback/receivers.py
+# Purpose: Signal handler that turns a completed session into notifications.
+# Contents:
+#   - notify_session_completed: on classes.signals.session_completed, publishes a
+#     session_completed event to every enrolled student and linked parent; each recipient only
+#     receives their own student ids.
+
 from django.dispatch import receiver
 
 from classes.signals import session_completed

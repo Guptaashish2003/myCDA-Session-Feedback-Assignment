@@ -1,3 +1,11 @@
+# File: backend/feedback/notifications.py
+# Purpose: In-process pub/sub for server-sent events.
+# Contents:
+#   - EventBroker: keeps one queue per open SSE connection: subscribe(user_id),
+#     unsubscribe(user_id, q), publish(user_id, event). Replace with Redis for multiple workers.
+#   - broker / format_sse(event): the shared broker instance and the SSE frame formatter ('event:'
+#     + 'data:' lines).
+
 """
 In-process pub/sub for server-sent events.
 

@@ -1,3 +1,14 @@
+# File: backend/feedback/selectors.py
+# Purpose: Read-side queries (who may see or do what).
+# Contents:
+#   - represented_students(user): the user themselves (student) or their linked children (parent).
+#   - feedback_visible_to(user): feedback for those students, newest first.
+#   - eligible_session_pairs(user): (student, session) pairs that are enrolled, completed, inside
+#     the window and not yet reviewed; mirrors the submission rules so the form only offers valid
+#     choices.
+#   - session_audience(session): {user_id: [student_ids]} of enrolled students and their parents,
+#     used for notifications.
+
 """Read-side queries. Views and serializers call these; they never build
 ad-hoc querysets about "who may see what" themselves."""
 

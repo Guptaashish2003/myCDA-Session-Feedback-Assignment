@@ -1,3 +1,12 @@
+/**
+ * File: frontend/src/hooks/useServerEvents.ts
+ * Purpose: Hook that listens to a Server-Sent Events endpoint.
+ * Contents:
+ *   - parseFrame(): turns one SSE frame ('event:' + 'data:') into {event, data}.
+ *   - useServerEvents(path, onEvent): streams with fetch (EventSource cannot send the
+ *     Authorization header), parses frames, calls the latest handler and reconnects after 3 s;
+ *     aborts on unmount.
+ */
 "use client";
 
 import { useEffect, useRef } from "react";

@@ -1,3 +1,13 @@
+# File: backend/accounts/management/commands/seed_data.py
+# Purpose: `python manage.py seed_data`: resets and fills the database with the assignment's test
+#     data.
+# Contents:
+#   - Command.handle(): deletes existing sessions, enrolments, classes, links, tokens and non-
+#     superusers, then creates 1 admin, 2 instructors, 3 parents, 5 students, family links, 3
+#     classes, enrolments and about 30 sessions with relative dates and mixed statuses, plus a
+#     token per user.
+#   - Command._create_user(): helper that creates a user with a role and password testpass123.
+
 """
 Seed the database with test data for the feedback assignment.
 

@@ -1,3 +1,7 @@
+# File: backend/feedback/admin.py
+# Purpose: Django admin registration for feedback.
+# Contents:
+#   - SessionFeedbackAdmin: lists reviews with ratings and filters by class.
 # Register your model(s) here for the Django admin.
 
 from django.contrib import admin

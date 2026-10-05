@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/app/dashboard/layout.tsx
+ * Purpose: Layout for authenticated pages.
+ * Contents:
+ *   - DashboardLayout: redirects to /login when there is no user, shows a loading state, and
+ *     renders the Sidebar next to the page.
+ */
 "use client";
 
 import { useEffect } from "react";

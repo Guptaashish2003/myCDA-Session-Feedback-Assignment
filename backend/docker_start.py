@@ -1,3 +1,13 @@
+# File: backend/docker_start.py
+# Purpose: Container start-up script used by backend/Dockerfile: migrate, seed if needed, run the
+#     server.
+# Contents:
+#   - main(): runs migrate; seeds depending on SEED_ON_START (if-empty seeds only when there are
+#     no users, always re-seeds, never skips); optionally runs seed_feedback when
+#     SEED_FEEDBACK=true.
+#   - os.execvp: replaces this process with `manage.py runserver 0.0.0.0:$PORT --noreload` so the
+#     server receives docker stop signals.
+
 """
 Container start-up script: migrate, seed (when needed), then run the server.
 

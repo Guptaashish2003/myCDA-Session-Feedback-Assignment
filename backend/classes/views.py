@@ -1,3 +1,12 @@
+# File: backend/classes/views.py
+# Purpose: Class and session endpoints.
+# Contents:
+#   - ClassListView: classes visible to the user: own (instructor), enrolled (student), children's
+#     (parent) or all (admin).
+#   - SessionListView / MyEnrollmentsView: sessions of a class; enrolments scoped by role.
+#   - CompleteSessionView (POST): instructor of the class (or admin) marks a session completed via
+#     services.complete_session; 403 for other instructors, 400 if the session is not scheduled.
+
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from rest_framework.exceptions import PermissionDenied

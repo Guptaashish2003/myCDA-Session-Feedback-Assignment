@@ -1,3 +1,11 @@
+/**
+ * File: frontend/src/components/feedback/InstructorSummaryCard.tsx
+ * Purpose: Anonymized instructor summary.
+ * Contents:
+ *   - InstructorSummaryCard: fetches /feedback/instructor-summary/; shows the overall score, three
+ *     bars, the review count and an anonymity notice, or a 'N of M reviews needed' message below
+ *     the threshold.
+ */
 "use client";
 
 import { ShieldCheck } from "lucide-react";

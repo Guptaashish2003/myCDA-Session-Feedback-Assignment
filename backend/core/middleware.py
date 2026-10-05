@@ -1,3 +1,12 @@
+# File: backend/core/middleware.py
+# Purpose: Request audit middleware that exposes the current user through thread-local storage.
+# Contents:
+#   - RequestAuditMiddleware: stores request.user in a thread-local for the duration of a request
+#     and clears it afterwards.
+#   - get_current_user(): returns that user (or None). Limitation: it captures Django's session
+#     user before DRF token auth runs, so for token requests it is anonymous; the feedback view
+#     therefore passes created_by explicitly.
+
 """
 Request audit middleware.
 

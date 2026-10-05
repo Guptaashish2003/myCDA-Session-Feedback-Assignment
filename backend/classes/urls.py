@@ -1,3 +1,8 @@
+# File: backend/classes/urls.py
+# Purpose: URL routes for /api/v1/classes/.
+# Contents:
+#   - urlpatterns: '' list, <class_id>/sessions/, sessions/<session_id>/complete/, enrollments/.
+
 from django.urls import path
 from . import views
 

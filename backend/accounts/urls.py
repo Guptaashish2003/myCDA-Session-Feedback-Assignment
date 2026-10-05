@@ -1,3 +1,8 @@
+# File: backend/accounts/urls.py
+# Purpose: URL routes for /api/v1/accounts/.
+# Contents:
+#   - urlpatterns: login/ -> LoginView, profile/ -> ProfileView.
+
 from django.urls import path
 from . import views
 

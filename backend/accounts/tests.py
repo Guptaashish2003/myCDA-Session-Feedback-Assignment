@@ -1,3 +1,10 @@
+# File: backend/accounts/tests.py
+# Purpose: Pre-existing tests for authentication and family links (must keep passing).
+# Contents:
+#   - AuthTests: login returns a token, bad password is 400, profile needs auth and returns user
+#     data.
+#   - FamilyLinkTests: parents see family_links, students do not, duplicate links are rejected.
+
 """
 Existing tests -- these must continue to pass after the candidate's changes.
 """

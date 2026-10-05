@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/app/layout.tsx
+ * Purpose: Root layout.
+ * Contents:
+ *   - RootLayout: sets page metadata and wraps every page in AuthProvider and the shadcn/sonner
+ *     Toaster used for notifications.
+ */
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/contexts/AuthContext";

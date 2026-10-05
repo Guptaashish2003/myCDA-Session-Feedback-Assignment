@@ -1,3 +1,12 @@
+# File: backend/core/serializers.py
+# Purpose: Base serializers every app extends instead of DRF's ModelSerializer.
+# Contents:
+#   - BaseModelSerializer: adds read-only created_at / updated_at / created_by_display and, on
+#     create(), fills created_by from the middleware user when the model has that field and it was
+#     not supplied.
+#   - ReadOnlyBaseSerializer: same shape but create() and update() raise, for list/retrieve-only
+#     endpoints.
+
 """
 Base serializer classes for the CDA unified backend.
 

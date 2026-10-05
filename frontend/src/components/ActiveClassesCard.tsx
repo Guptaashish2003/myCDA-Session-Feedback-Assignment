@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/components/ActiveClassesCard.tsx
+ * Purpose: Existing card listing the user's classes.
+ * Contents:
+ *   - ActiveClassesCard: fetches /classes/ and shows each class with its instructor and student
+ *     count.
+ */
 "use client";
 
 import { useEffect, useState } from "react";

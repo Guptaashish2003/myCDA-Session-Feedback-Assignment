@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/hooks/useApiResource.ts
+ * Purpose: Hook for GET requests with loading and error state.
+ * Contents:
+ *   - useApiResource(path, errorMessage): returns {data, setData, loading, error, reload};
+ *     reload(true) refreshes silently; pass null to skip fetching.
+ */
 "use client";
 
 import { useCallback, useEffect, useState } from "react";

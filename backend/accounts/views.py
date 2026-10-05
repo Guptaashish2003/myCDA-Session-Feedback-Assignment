@@ -1,3 +1,10 @@
+# File: backend/accounts/views.py
+# Purpose: Authentication endpoints.
+# Contents:
+#   - LoginView (POST): validates credentials, get_or_creates a DRF Token and returns {token,
+#     user}.
+#   - ProfileView (GET): returns the current user and, for parents, their family_links.
+
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny, IsAuthenticated

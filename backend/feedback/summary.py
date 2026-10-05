@@ -1,3 +1,14 @@
+# File: backend/feedback/summary.py
+# Purpose: Instructor-facing anonymized aggregation (weighted rolling average).
+# Contents:
+#   - weighted_average(pairs): sum(weight * value) / sum(weight), or None without weight.
+#   - valid_duration(session): reads duration_minutes from session_metadata; no invented default.
+#   - compute_summary(per_session): pure maths: per-dimension and overall duration-weighted
+#     averages plus total count.
+#   - InstructorSummaryService.summarize(): takes the last N completed sessions, fetches only per-
+#     session counts and averages (never student, submitter or note columns), computes the
+#     summary, hides averages below the minimum review count and rounds to 2 decimals.
+
 """
 Instructor-facing aggregation: weighted rolling average over the last N
 completed sessions.

@@ -1,3 +1,9 @@
+/**
+ * File: frontend/src/app/page.tsx
+ * Purpose: Home route '/'.
+ * Contents:
+ *   - Home: once auth has loaded, redirects to /dashboard if logged in, else /login.
+ */
 "use client";
 
 import { useEffect } from "react";

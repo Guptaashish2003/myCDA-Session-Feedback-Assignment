@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/app/login/page.tsx
+ * Purpose: Login page.
+ * Contents:
+ *   - LoginPage: username/password form that calls AuthContext.login, shows an error on failure
+ *     and lists the test accounts.
+ */
 "use client";
 
 import { useState, FormEvent } from "react";

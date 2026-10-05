@@ -1,3 +1,16 @@
+# File: backend/feedback/policies.py
+# Purpose: Submission rules (SOLID: one small class per rule, composed by a policy).
+# Contents:
+#   - session_completed_at / is_within_feedback_window: completion time = metadata.completed_at,
+#     else scheduled_date; must be within FEEDBACK_WINDOW_DAYS.
+#   - ActorCanActForStudent: student themselves or a parent linked via FamilyLink, else NotAllowed
+#     (403).
+#   - StudentEnrolledInClass / SessionIsCompleted / SessionWithinWindow / NotAlreadySubmitted:
+#     enrolment, status, 30-day window and duplicate checks that raise RuleViolation (400) with a
+#     friendly message.
+#   - FeedbackSubmissionPolicy: runs the rules in order and stops at the first failure; rules can
+#     be injected, so adding one never edits the others.
+
 """
 Submission rules for session feedback.
 

@@ -1,3 +1,9 @@
+/**
+ * File: frontend/src/components/ProfileCard.tsx
+ * Purpose: Existing profile card.
+ * Contents:
+ *   - ProfileCard: shows name, email, role and, for parents, their linked students.
+ */
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";

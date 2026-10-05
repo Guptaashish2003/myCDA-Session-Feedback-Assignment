@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+# File: backend/manage.py
+# Purpose: Django's command-line entry point (runserver, migrate, test, seed_data, ...).
+# Contents:
+#   - main(): sets DJANGO_SETTINGS_MODULE=config.settings, then hands sys.argv to Django's
+#     execute_from_command_line.
 """Django's command-line utility for administrative tasks."""
 import os
 import sys

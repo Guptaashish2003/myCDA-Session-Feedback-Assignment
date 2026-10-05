@@ -1,3 +1,11 @@
+/**
+ * File: frontend/src/lib/types.ts
+ * Purpose: TypeScript types mirroring the API.
+ * Contents:
+ *   - User, Session, ClassItem, PaginatedResponse: starter types.
+ *   - FeedbackEntry, EligibleSession, FeedbackPayload, InstructorSummary, SessionCompletedEvent,
+ *     RatingKey: types added for the feedback feature.
+ */
 export type UserRole = "admin" | "instructor" | "parent" | "student";
 
 export interface User {

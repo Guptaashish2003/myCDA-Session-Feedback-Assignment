@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/components/feedback/CompleteSessionsCard.tsx
+ * Purpose: Instructor tool for closing out sessions.
+ * Contents:
+ *   - CompleteSessionsCard: lists the instructor's scheduled sessions (classes then sessions) and
+ *     posts to /classes/sessions/<id>/complete/, which notifies students and parents in real time.
+ */
 "use client";
 
 import { useCallback, useEffect, useState } from "react";

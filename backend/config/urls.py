@@ -1,3 +1,8 @@
+# File: backend/config/urls.py
+# Purpose: Root URL configuration.
+# Contents:
+#   - urlpatterns: mounts /admin/, and the accounts, classes and feedback apps under /api/v1/.
+
 from django.contrib import admin
 from django.urls import path, include
 

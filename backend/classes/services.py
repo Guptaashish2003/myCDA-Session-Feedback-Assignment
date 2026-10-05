@@ -1,3 +1,11 @@
+# File: backend/classes/services.py
+# Purpose: Business logic for completing a session (kept out of the view).
+# Contents:
+#   - SessionNotCompletable: raised when the session is not scheduled.
+#   - complete_session(session, now): sets status=completed, stores completed_at in
+#     session_metadata, saves, then sends the session_completed signal exactly once per
+#     transition.
+
 from django.utils import timezone
 
 from .models import Session

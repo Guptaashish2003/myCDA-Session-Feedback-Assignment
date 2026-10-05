@@ -1,3 +1,11 @@
+# File: backend/core/permissions.py
+# Purpose: Role-based DRF permission classes shared by every app.
+# Contents:
+#   - HasRole(*roles): factory returning a permission class that allows authenticated users whose
+#     role is in roles.
+#   - IsStudentOrParent / IsInstructorOrAdmin / IsAdmin: pre-built compound permissions built on
+#     the same role check.
+
 """
 Role-based permission classes for the CDA unified backend.
 

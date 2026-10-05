@@ -1,3 +1,12 @@
+# File: backend/classes/models.py
+# Purpose: Class, enrolment and session models.
+# Contents:
+#   - Class: a recurring class taught by one instructor.
+#   - ClassEnrollment: which students attend which class (unique per pair, can be inactive).
+#   - Session: one occurrence of a class with a status (scheduled, completed, cancelled) and a
+#     session_metadata JSON (duration_minutes, topic_covered, completed_at, ...); duration_minutes
+#     and topic are convenience properties.
+
 from django.db import models
 from accounts.models import User
 

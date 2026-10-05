@@ -1,3 +1,9 @@
+/**
+ * File: frontend/src/components/Sidebar.tsx
+ * Purpose: Navigation sidebar.
+ * Contents:
+ *   - Sidebar: role-filtered nav items, the signed-in user and a sign-out button.
+ */
 "use client";
 
 import Link from "next/link";

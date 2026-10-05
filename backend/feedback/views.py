@@ -1,3 +1,16 @@
+# File: backend/feedback/views.py
+# Purpose: Thin HTTP layer for /api/v1/feedback/.
+# Contents:
+#   - FeedbackCreateView (POST): student/parent only; saves with created_by=request.user and
+#     returns the student-facing representation (201).
+#   - MyFeedbackListView / EligibleSessionListView (GET): paginated history and reviewable
+#     sessions from the selectors.
+#   - InstructorSummaryView (GET): instructor sees own summary (403 for another instructor's id);
+#     admin may pass ?instructor_id=X or omit it for all.
+#   - FeedbackEventsView (GET): SSE stream: subscribes to the broker, sends heartbeats every 15 s
+#     and unsubscribes on disconnect; uses a content-negotiation class that accepts text/event-
+#     stream.
+
 import queue
 
 from django.http import StreamingHttpResponse

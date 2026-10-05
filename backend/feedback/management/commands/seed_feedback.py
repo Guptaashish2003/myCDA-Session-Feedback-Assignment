@@ -1,3 +1,10 @@
+# File: backend/feedback/management/commands/seed_feedback.py
+# Purpose: `python manage.py seed_feedback`: optional demo reviews (run after seed_data).
+# Contents:
+#   - Command.handle(): adds reviews for completed sessions that are already outside the feedback
+#     window, so the instructor summary has data while the open sessions stay reviewable for
+#     manual tests.
+
 """
 OPTIONAL demo data: python manage.py seed_feedback
 

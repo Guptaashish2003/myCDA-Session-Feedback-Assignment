@@ -1,3 +1,10 @@
+/**
+ * File: frontend/src/components/CardStatus.tsx
+ * Purpose: Shared loading / error / empty states for cards (DRY).
+ * Contents:
+ *   - CardStatus: renders skeletons while loading, the error text, the empty message, or its
+ *     children, in that priority.
+ */
 "use client";
 
 import type { ReactNode } from "react";

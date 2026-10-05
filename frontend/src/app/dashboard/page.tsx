@@ -1,3 +1,11 @@
+/**
+ * File: frontend/src/app/dashboard/page.tsx
+ * Purpose: Dashboard: renders cards by role.
+ * Contents:
+ *   - DashboardPage: everyone: ActiveClassesCard + ProfileCard; student/parent: FeedbackProvider
+ *     with SubmitFeedbackCard + FeedbackHistoryCard; instructor/admin: InstructorSummaryCard +
+ *     CompleteSessionsCard.
+ */
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";

@@ -1,3 +1,15 @@
+# File: backend/feedback/tests.py
+# Purpose: 34 tests for the feedback feature.
+# Contents:
+#   - SubmissionTests: student/parent submission, linked-parent rule, rating and note limits,
+#     status and 30-day rules, per-student duplicates, enrolment.
+#   - ListingTests: history scoping and ordering, eligible sessions.
+#   - WeightedAverageTests / InstructorSummaryTests: weighted-average maths, last-10 window, no
+#     default duration, anonymous response keys, minimum-review threshold, per-instructor scope,
+#     admin filter.
+#   - SessionCompletedEventTests: who is notified, parent payload, completion permissions, SSE
+#     endpoint.
+
 from datetime import timedelta
 
 from django.test import SimpleTestCase, TestCase

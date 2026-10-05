@@ -1,3 +1,11 @@
+/**
+ * File: frontend/src/contexts/AuthContext.tsx
+ * Purpose: Authentication state for the whole app.
+ * Contents:
+ *   - AuthProvider: on mount loads /accounts/profile/ when a token is stored; login() posts
+ *     credentials and saves the token in localStorage; logout() clears it.
+ *   - useAuth(): hook returning {user, loading, login, logout}.
+ */
 "use client";
 
 import {

@@ -1,3 +1,16 @@
+# File: backend/config/settings.py
+# Purpose: Django settings: apps, middleware, database (SQLite), DRF defaults, CORS and feedback
+#     tuning.
+# Contents:
+#   - env_bool / env_list: helpers that read booleans and comma-separated lists from environment
+#     variables.
+#   - SECRET_KEY, DEBUG, ALLOWED_HOSTS, CORS_*: come from DJANGO_* / CORS_* env vars with dev-safe
+#     defaults, so a plain runserver still works.
+#   - REST_FRAMEWORK: token + session authentication, IsAuthenticated by default,
+#     StandardPagination, JSON-only renderer.
+#   - FEEDBACK_WINDOW_DAYS / FEEDBACK_SUMMARY_WINDOW / FEEDBACK_SUMMARY_MIN_RESPONSES: tunable
+#     feedback rules (30 days, last 10 sessions, minimum 3 reviews).
+
 """
 CDA Unified Backend - Development Settings
 
