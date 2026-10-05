@@ -58,3 +58,59 @@ export interface PaginatedResponse<T> {
   page_size: number;
   results: T[];
 }
+
+/* ---------- Session feedback ---------- */
+
+export type RatingKey = "clarity" | "engagement" | "pace";
+
+/** Ratings keyed the way the API sends/receives them (`rating_clarity`, ...). */
+export type RatingFields = { [K in RatingKey as `rating_${K}`]: number };
+
+export interface FeedbackEntry extends RatingFields {
+  id: number;
+  session: number;
+  class_name: string;
+  session_date: string;
+  topic: string;
+  student: number;
+  student_display: UserMinimal;
+  note: string;
+  created_by_display: string | null;
+  created_at: string;
+  /** Client-only: true while an optimistic submission is still in flight. */
+  pending?: boolean;
+}
+
+export interface EligibleSession {
+  session: number;
+  class_name: string;
+  scheduled_date: string;
+  topic: string;
+  duration_minutes: number;
+  student: number;
+  student_display: UserMinimal;
+}
+
+export interface FeedbackPayload extends RatingFields {
+  session: number;
+  student?: number;
+  note?: string;
+}
+
+export interface InstructorSummary {
+  window_size: number;
+  sessions_in_window: number;
+  sessions_with_feedback: number;
+  total_feedback_count: number;
+  minimum_responses: number;
+  meets_anonymity_threshold: boolean;
+  averages: Record<RatingKey | "overall", number | null>;
+}
+
+export interface SessionCompletedEvent {
+  type: "session_completed";
+  session_id: number;
+  class_name: string;
+  student_ids: number[];
+  message: string;
+}

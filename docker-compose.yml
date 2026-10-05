@@ -1,0 +1,20 @@
+# One command for the whole app:  docker compose up --build
+#   frontend -> http://localhost:3000     backend API -> http://localhost:8000/api/v1/
+# Configuration lives in backend/.env and frontend/.env (see the .env.example next to each).
+# The SQLite DB lives inside the container: re-creating it re-seeds fresh data.
+# Log in with the accounts in TEST_ACCOUNTS.md (password testpass123).
+services:
+  backend:
+    build: ./backend
+    env_file:
+      - path: ./backend/.env
+        required: false   # defaults are built in; .env is gitignored
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend    # picks up frontend/.env at build time
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

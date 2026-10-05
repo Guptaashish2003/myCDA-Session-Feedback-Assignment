@@ -12,11 +12,25 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "dev-insecure-key-do-not-use-in-production"
 
-DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+def env_bool(name, default):
+    return os.environ.get(name, str(default)).strip().lower() in ("1", "true", "yes", "on")
+
+
+def env_list(name, default=""):
+    return [item.strip() for item in os.environ.get(name, default).split(",") if item.strip()]
+
+
+# Values come from the environment (see backend/.env.example); the defaults keep
+# a plain `python manage.py runserver` working without any configuration.
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY", "dev-insecure-key-do-not-use-in-production"
+)
+
+DEBUG = env_bool("DJANGO_DEBUG", True)
+
+ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", "*")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -33,7 +47,7 @@ INSTALLED_APPS = [
     "core",
     "accounts",
     "classes",
-    "feedback",
+    "feedback.apps.FeedbackConfig",
 ]
 
 MIDDLEWARE = [
@@ -108,4 +122,11 @@ REST_FRAMEWORK = {
 
 # --- CORS ---
 
-CORS_ALLOW_ALL_ORIGINS = True  # Dev only
+CORS_ALLOW_ALL_ORIGINS = env_bool("CORS_ALLOW_ALL_ORIGINS", True)  # Dev only
+CORS_ALLOWED_ORIGINS = env_list("CORS_ALLOWED_ORIGINS")
+
+# --- Feedback feature ---
+
+FEEDBACK_WINDOW_DAYS = int(os.environ.get("FEEDBACK_WINDOW_DAYS", 30))
+FEEDBACK_SUMMARY_WINDOW = int(os.environ.get("FEEDBACK_SUMMARY_WINDOW", 10))
+FEEDBACK_SUMMARY_MIN_RESPONSES = int(os.environ.get("FEEDBACK_SUMMARY_MIN_RESPONSES", 3))

@@ -1,10 +1,15 @@
-from rest_framework import generics
+from django.shortcuts import get_object_or_404
+from rest_framework import generics, status
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from core.permissions import IsStudentOrParent, IsInstructorOrAdmin
 from accounts.models import FamilyLink
 from .models import Class, Session, ClassEnrollment
 from .serializers import ClassSerializer, SessionSerializer, EnrollmentSerializer
+from .services import SessionNotCompletable, complete_session
 
 
 class ClassListView(generics.ListAPIView):
@@ -78,3 +83,31 @@ class MyEnrollmentsView(generics.ListAPIView):
                 is_active=True
             ).select_related("class_obj", "class_obj__instructor", "student")
         return ClassEnrollment.objects.none()
+
+
+class CompleteSessionView(APIView):
+    """
+    POST: the session's instructor (or an admin) marks it completed.
+    Emits the `session_completed` signal, which downstream apps use to
+    notify the enrolled students and their parents.
+    """
+
+    permission_classes = [IsInstructorOrAdmin]
+
+    def post(self, request, session_id):
+        session = get_object_or_404(
+            Session.objects.select_related("class_obj", "class_obj__instructor"),
+            pk=session_id,
+        )
+        if (
+            request.user.role != "admin"
+            and session.class_obj.instructor_id != request.user.id
+        ):
+            raise PermissionDenied("You can only complete sessions of your own classes.")
+
+        try:
+            complete_session(session)
+        except SessionNotCompletable as exc:
+            return Response({"detail": str(exc)}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(SessionSerializer(session).data, status=status.HTTP_200_OK)

@@ -65,6 +65,7 @@ frontend/out/
 out/
 build/
 dist/
+docs/
 
 # Debug logs
 npm-debug.log*

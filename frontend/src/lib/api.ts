@@ -66,6 +66,16 @@ class ApiClient {
     return res.json();
   }
 
+  /** Open a long-lived response (Server-Sent Events) with the auth header attached. */
+  async stream(path: string, signal: AbortSignal): Promise<Response> {
+    const res = await fetch(`${BASE_URL}${path}`, {
+      headers: { ...this.getHeaders(), Accept: "text/event-stream" },
+      signal,
+    });
+    if (!res.ok || !res.body) throw new ApiError(res.status, {});
+    return res;
+  }
+
   async delete(path: string): Promise<void> {
     const res = await fetch(`${BASE_URL}${path}`, {
       method: "DELETE",

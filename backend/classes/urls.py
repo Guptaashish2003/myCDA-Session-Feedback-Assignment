@@ -9,6 +9,11 @@ urlpatterns = [
         name="session-list",
     ),
     path(
+        "sessions/<int:session_id>/complete/",
+        views.CompleteSessionView.as_view(),
+        name="session-complete",
+    ),
+    path(
         "enrollments/",
         views.MyEnrollmentsView.as_view(),
         name="my-enrollments",
