@@ -187,21 +187,3 @@ docs/                             main.tex + sections/ -- developer and user-tes
 docker-compose.yml                runs backend + frontend
 ```
 
-## 7. Documentation (LaTeX)
-
-```bash
-cd docs
-pdflatex main.tex && pdflatex main.tex     # run twice for the table of contents
-```
-
-Contains the architecture, ER diagram, data-flow and sequence diagrams, API reference, pseudo-code and mathematics, and role-by-role test scripts.
-
-## 8. Troubleshooting
-
-| Symptom | Fix |
-|---|---|
-| Browser shows "Could not load..." | backend not running, or `NEXT_PUBLIC_API_URL` wrong (rebuild the frontend after changing it) |
-| No sessions to review | seed data is dated relative to seeding; re-run `python manage.py seed_data` (or recreate the containers) |
-| Instructor summary shows "N of 3 reviews needed" | by design: averages stay hidden until 3 reviews exist (`FEEDBACK_SUMMARY_MIN_RESPONSES`) |
-| `Port 3000/8000 already in use` | stop the other process, or change the left side of the port mapping in `docker-compose.yml` |
-| Real-time toast does not appear | keep the dashboard open as the student/parent; the stream reconnects automatically after a restart |
